@@ -1,0 +1,25 @@
+{
+  "name": "ti3_gamebuddy",
+  "version": "1.0.0",
+  "description": "ti3 companion web-app",
+  "main": "index.js",
+  "scripts": {
+    "test": "dbg"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tubenhirn/ti3_gamebuddy.git"
+  },
+  "keywords": [
+    "ti3"
+  ],
+  "author": "tubenhirn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tubenhirn/ti3_gamebuddy/issues"
+  },
+  "homepage": "https://github.com/tubenhirn/ti3_gamebuddy#readme",
+  "dependencies": {
+    "socket.io": "^2.0.3"
+  }
+}
