@@ -1,4 +1,4 @@
-define(['jquery', 'socketio', 'mustache'],function($, io, mustache){
+define(['jquery', 'socketio', 'mustache'], function ($, io, mustache) {
 
 
     var socket = io.connect('http://localhost:3000');
@@ -7,7 +7,7 @@ define(['jquery', 'socketio', 'mustache'],function($, io, mustache){
 
     renderTemplate();
 
-    $(document).on('click', 'button', function(){
+    $(document).on('click', 'button', function () {
 
         socket.emit('user-event', {
             'data': $(this).data('action')
@@ -15,22 +15,21 @@ define(['jquery', 'socketio', 'mustache'],function($, io, mustache){
 
     });
 
-    socket.on('update', function(data){
-        console.log(data);
+    socket.on('update', function (data) {
 
-        renderTemplate(data.template);
+
+        renderTemplate(data.template, data.renderData);
 
     });
 
-    function renderTemplate (_tmplt) {
+    function renderTemplate(_tmplt, data) {
 
-        console.log(_tmplt);
 
-        var tmplt = !_tmplt ? 'index' : _tmplt;
+        var template = !_tmplt ? 'index' : _tmplt;
 
-        $.get('/render/'+tmplt+'.mustache',function(template){
+        $.get('/render/' + template + '.mustache', function (result) {
 
-            $('content').html(mustache.render(template));
+            $('.content').html(mustache.render(result, data));
 
         });
 

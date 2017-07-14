@@ -42,38 +42,17 @@ io.on('connection', function (socket) {
 
     });
 
-    socket.on('host', function (_data) {
-
-        var data = {
-            template : _data.data,
-            eventType : _data.data
-        };
-
-        console.log('host a game');
-        io.emit('update', data);
-
-    });
-
-    socket.on('join', function (_data) {
-
-        var data = {
-            template : _data.data,
-            eventType : _data.data
-        };
-
-        console.log('join a game');
-        io.emit('update', data);
-
-    });
 
     socket.on('user-event', function(_data){
 
         var data = {
             template : _data.data,
-            eventType : _data.data
+            eventType : _data.data,
+            renderData : {}
         };
 
-        console.log(data.eventType);
+
+
         io.emit('update', data);
 
     });
