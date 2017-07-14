@@ -18,4 +18,8 @@ node_modules
 *.log
 *.gz
 
+# project
 *.css
+
+# idea
+.idea
