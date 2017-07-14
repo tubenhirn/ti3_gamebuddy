@@ -25,7 +25,7 @@ app.use(lessMiddleware(path.join(__dirname, 'server', 'less'), {
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/jquery', express.static(path.join(__dirname, 'node_modules', 'jquery', 'dist')));
 app.use('/mustache', express.static(path.join(__dirname, 'node_modules', 'mustache')));
-app.use('/templates', express.static(path.join(__dirname, 'templates', 'mustache')));
+app.use('/render', express.static(path.join(__dirname, 'templates', 'mustache')));
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'templates', 'index.html'));
@@ -42,16 +42,38 @@ io.on('connection', function (socket) {
 
     });
 
-    socket.on('host', function (data) {
+    socket.on('host', function (_data) {
+
+        var data = {
+            template : _data.data,
+            eventType : _data.data
+        };
 
         console.log('host a game');
         io.emit('update', data);
 
     });
 
-    socket.on('join', function (data) {
+    socket.on('join', function (_data) {
+
+        var data = {
+            template : _data.data,
+            eventType : _data.data
+        };
 
         console.log('join a game');
+        io.emit('update', data);
+
+    });
+
+    socket.on('user-event', function(_data){
+
+        var data = {
+            template : _data.data,
+            eventType : _data.data
+        };
+
+        console.log(data.eventType);
         io.emit('update', data);
 
     });
