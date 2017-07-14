@@ -20,7 +20,7 @@ node_modules
 
 # project
 *.css
+public/style/
 
 # idea
-.idea*
-public/style/
+/.idea/
