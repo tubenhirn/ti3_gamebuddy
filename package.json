@@ -21,6 +21,9 @@
   "homepage": "https://github.com/tubenhirn/ti3_gamebuddy#readme",
   "dependencies": {
     "express": "^4.15.3",
+    "less-middleware": "^2.2.0",
+    "mongodb": "^2.2.30",
+    "path": "^0.12.7",
     "socket.io": "^2.0.3"
   },
   "devDependencies": {
