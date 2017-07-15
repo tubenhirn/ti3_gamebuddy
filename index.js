@@ -1,4 +1,7 @@
 var express = require('express');
+var session = require('express-session');
+var MongoDBStore = require('connect-mongodb-session')(session);
+
 var app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
